@@ -1,0 +1,1600 @@
+<!-- /*
+ * Template Name: Kat Royal
+ * Template Author: Untree.co
+ * Template URI: https://untree.co/
+ * License: https://creativecommons.org/licenses/by/3.0/
+ */ -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="logo.png" />
+
+    <meta name="description" content="Kat Royal — hotel boutique con habitaciones de lujo, gastronomía y experiencias inolvidables." />
+    <meta name="keywords" content="hotel, Kat Royal, alojamiento" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Kat Royal — Hotel &amp; Resort</title>
+
+    <style>
+      /* ============================================
+         PALETA DE COLORES EN INGLÉS
+         Cambia aquí y se actualiza toda la web
+         ============================================ */
+      :root {
+        --navy: black;        /* Azul marino oscuro (header, footer, video tour) */
+        --navy-soft: lightslategray;  /* Azul marino más claro (servicios) */
+        --gold: tan;                 /* Dorado principal (botones, acentos) */
+        --gold-dark: peru;           /* Dorado oscuro (hover) */
+        --cream: gold-dark;        /* Crema de fondo general */
+        --text: dimgray;             /* Gris para el texto normal */
+        --white: white;              /* Blanco puro */
+        --radius: 14px;
+        --shadow: 0 18px 40px -18px rgba(25, 25, 112, 0.35);
+        --max: 1160px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--text);
+        background: var(--cream);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+
+      h1, h2, h3, h4 {
+        color: var(--navy);
+        line-height: 1.2;
+        margin: 0 0 0.6em;
+        font-weight: 700;
+      }
+      h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+      h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+      h3 { font-size: 1.15rem; }
+      p { margin: 0 0 1rem; }
+
+      .container {
+        width: 100%;
+        max-width: var(--max);
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+
+      .section { padding: 96px 0; }
+
+      .eyebrow {
+        display: inline-block;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--gold-dark);
+        margin-bottom: 14px;
+      }
+
+      .section-head { max-width: 620px; margin-bottom: 48px; }
+      .section-head--center { margin-inline: auto; text-align: center; }
+
+      /* ---------- Botones ---------- */
+      .btn {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+      .btn:hover { transform: translateY(-2px); }
+      .btn--gold { background: var(--gold); color: var(--navy); }
+      .btn--gold:hover { background: var(--gold-dark); }
+      .btn--ghost { border-color: rgba(255, 255, 255, 0.6); color: var(--white); }
+      .btn--ghost:hover { background: var(--white); color: var(--navy); }
+      .btn--dark { background: var(--navy); color: var(--white); }
+      .btn--dark:hover { background: var(--navy-soft); }
+
+      /* ---------- Header ---------- */
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        padding: 18px 0;
+        transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+      }
+      .site-header.is-stuck {
+        background: rgba(25, 25, 112, 0.96);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 30px -18px rgba(0, 0, 0, 0.8);
+        padding: 10px 0;
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+      /* ✅ Logo de imagen */
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: opacity 0.25s ease;
+      }
+      .brand:hover { opacity: 0.85; }
+      .brand img {
+        height: 46px;
+        width: auto;
+        display: block;
+      }
+
+      .nav__links {
+        display: flex; align-items: center; gap: 30px;
+        list-style: none; margin: 0; padding: 0;
+      }
+      .nav__links a {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.92rem; font-weight: 500;
+        position: relative; padding-bottom: 4px;
+      }
+      .nav__links a::after {
+        content: ""; position: absolute; left: 0; bottom: 0;
+        height: 2px; width: 0; background: var(--gold);
+        transition: width 0.25s ease;
+      }
+      .nav__links a:hover { color: var(--white); }
+      .nav__links a:hover::after { width: 100%; }
+      .nav__cta { display: flex; align-items: center; gap: 12px; }
+
+      .nav__toggle {
+        display: none; width: 44px; height: 44px; border-radius: 10px;
+        background: transparent; border: 1px solid rgba(255, 255, 255, 0.35);
+        cursor: pointer; padding: 0; position: relative;
+      }
+      .nav__toggle span,
+      .nav__toggle span::before,
+      .nav__toggle span::after {
+        position: absolute; left: 50%; width: 20px; height: 2px;
+        background: var(--white); transform: translateX(-50%);
+        transition: transform 0.25s ease;
+      }
+      .nav__toggle span { top: 50%; margin-top: -1px; }
+      .nav__toggle span::before { content: ""; top: -6px; }
+      .nav__toggle span::after { content: ""; top: 6px; }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        position: relative; min-height: 100svh; display: grid; align-items: center;
+        color: var(--white);
+        background: linear-gradient(180deg, rgba(25, 25, 112, 0.78) 0%, rgba(25, 25, 112, 0.55) 45%, rgba(25, 25, 112, 0.88) 100%);
+        padding: 140px 0 80px;
+      }
+      .hero__bg {
+        position: absolute; inset: 0; z-index: -1;
+        background: url("portada.jpg") center / cover no-repeat;
+      }
+      .hero .eyebrow {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        letter-spacing: 0.12em;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .hero h1 {
+        font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 0.5em;
+      }
+      .hero p { max-width: 560px; color: rgba(255, 255, 255, 0.88); font-size: 1.08rem; }
+      .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+
+      .booking-bar {
+        margin-top: 64px; background: rgba(255, 255, 255, 0.97);
+        border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px;
+        display: grid; grid-template-columns: repeat(3, 1fr) auto;
+        gap: 14px; align-items: end; color: var(--text);
+      }
+      .field { display: flex; flex-direction: column; gap: 6px; }
+      .field label {
+        font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+        font-weight: 600; color: var(--gold-dark);
+      }
+      .field input,
+      .field select {
+        font: inherit; font-size: 0.94rem; padding: 11px 12px;
+        border: 1px solid gainsboro; border-radius: 10px;
+        background: var(--cream); color: var(--navy);
+      }
+
+      /* ---------- Nosotros ---------- */
+      .about__grid {
+        display: grid; grid-template-columns: 1.05fr 1fr;
+        gap: 60px; align-items: center;
+      }
+      .about__media {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      }
+      .about__media img {
+        border-radius: var(--radius); height: 100%;
+        object-fit: cover; box-shadow: var(--shadow);
+        background: gainsboro;
+      }
+      .about__media img:first-child { grid-row: span 2; aspect-ratio: 3 / 5; }
+      .about__media img:not(:first-child) { aspect-ratio: 4 / 3; }
+
+      .stats {
+        display: flex; flex-wrap: wrap; gap: 32px;
+        margin-top: 32px; padding-top: 28px;
+        border-top: 1px solid gainsboro;
+      }
+      .stat strong { display: block; font-size: 1.9rem; color: var(--navy); line-height: 1; }
+      .stat span {
+        font-size: 0.8rem; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--gold-dark);
+      }
+
+      /* ============================================
+         VIDEO TOUR
+         ============================================ */
+      .tour {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.82);
+        position: relative;
+        overflow: hidden;
+      }
+      .tour::before {
+        content: "";
+        position: absolute;
+        top: -120px; right: -120px;
+        width: 380px; height: 380px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(210, 180, 140, 0.14), transparent 70%);
+        pointer-events: none;
+      }
+      .tour h2 { color: var(--white); }
+      .tour .eyebrow { color: var(--gold); }
+
+      .tour__grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .tour__video {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+        background: black;
+        aspect-ratio: 16 / 9;
+      }
+      .tour__video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        cursor: pointer;
+      }
+
+      .tour__duration {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(25, 25, 112, 0.85);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 5px 12px;
+        border-radius: 999px;
+        z-index: 3;
+        pointer-events: none;
+        backdrop-filter: blur(4px);
+      }
+
+      .tour__play {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(25, 25, 112, 0.2), rgba(25, 25, 112, 0.55));
+        transition: opacity 0.3s ease;
+      }
+      .tour__video.is-playing .tour__play { opacity: 0; }
+      .tour__play-btn {
+        width: 84px; height: 84px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--navy);
+        display: grid; place-items: center;
+        font-size: 2rem;
+        padding-left: 6px;
+        box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+
+      .tour__content p { color: rgba(255, 255, 255, 0.8); }
+
+      .tour__features {
+        list-style: none; padding: 0;
+        margin: 22px 0 0;
+        display: grid;
+        gap: 12px;
+      }
+      .tour__features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.94rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .tour__features li::before {
+        content: "✓";
+        flex: 0 0 auto;
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        background: rgba(210, 180, 140, 0.2);
+        color: var(--gold);
+        display: grid; place-items: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+
+      .tour__actions {
+        display: flex; gap: 12px; flex-wrap: wrap;
+        margin-top: 26px;
+      }
+
+      .video-lightbox {
+        position: fixed; inset: 0; z-index: 120;
+        display: none;
+        align-items: center; justify-content: center;
+        background: rgba(0, 0, 0, 0.92);
+        padding: 30px;
+      }
+      .video-lightbox.is-open { display: flex; }
+      .video-lightbox video {
+        width: 100%;
+        max-width: 1200px;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        background: black;
+      }
+      .video-lightbox__close {
+        position: absolute;
+        top: 20px; right: 20px;
+        width: 46px; height: 46px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+        border: none;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      .video-lightbox__close:hover { background: var(--gold); color: var(--navy); }
+
+      /* ---------- Habitaciones ---------- */
+      .rooms { background: var(--white); }
+      .cards {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+      }
+      .card {
+        background: var(--cream); border-radius: var(--radius);
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+      .card__img {
+        aspect-ratio: 4 / 3; overflow: hidden; background: gainsboro;
+      }
+      .card__img img {
+        width: 100%; height: 100%; object-fit: cover;
+        object-position: center; transition: transform 0.6s ease;
+      }
+      .card:hover .card__img img { transform: scale(1.06); }
+      .card__body { padding: 26px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+      .card__meta {
+        display: flex; gap: 16px; font-size: 0.8rem;
+        color: slategray; margin-bottom: 10px;
+      }
+      .card__body p { font-size: 0.94rem; }
+      .card__footer {
+        margin-top: auto; padding-top: 18px;
+        border-top: 1px solid gainsboro;
+        display: flex; align-items: center;
+        justify-content: space-between; gap: 12px;
+      }
+      .price { font-weight: 700; color: var(--navy); }
+      .price small { font-weight: 400; color: slategray; font-size: 0.78rem; }
+
+      /* ---------- Servicios ---------- */
+      .amenities { background: var(--navy-soft); color: rgba(255, 255, 255, 0.82); }
+      .amenities h2 { color: var(--white); }
+      .amenities .eyebrow { color: var(--gold); }
+      .amenity-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 26px;
+      }
+      .amenity {
+        padding: 28px 24px; border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius); background: rgba(255, 255, 255, 0.03);
+        transition: border-color 0.25s ease, background 0.25s ease;
+      }
+      .amenity:hover { border-color: var(--gold); background: rgba(210, 180, 140, 0.08); }
+      .amenity h3 { color: var(--white); margin-bottom: 8px; }
+      .amenity p { font-size: 0.92rem; margin: 0; }
+      .amenity__icon {
+        width: 44px; height: 44px; border-radius: 12px;
+        display: grid; place-items: center;
+        background: rgba(210, 180, 140, 0.16); color: var(--gold);
+        font-size: 1.25rem; margin-bottom: 16px;
+      }
+      .amenity__icon img {
+        width: 100%; height: 100%;
+        object-fit: cover; border-radius: 12px;
+      }
+
+      /* ---------- Galería ---------- */
+      .gallery {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 190px; gap: 14px;
+      }
+      .gallery a { overflow: hidden; border-radius: var(--radius); display: block; }
+      .gallery img {
+        width: 100%; height: 100%; object-fit: cover;
+        background: gainsboro;
+        transition: transform 0.6s ease, filter 0.4s ease;
+      }
+      .gallery a:hover img { transform: scale(1.07); filter: brightness(0.82); }
+      .gallery .span-2 { grid-column: span 2; grid-row: span 2; }
+
+      /* ---------- Contacto ---------- */
+      .contact { background: var(--white); }
+      .contact__grid {
+        display: grid; grid-template-columns: 1fr 1.1fr;
+        gap: 60px; align-items: start;
+      }
+      .contact__list {
+        list-style: none; margin: 24px 0 0; padding: 0;
+        display: grid; gap: 18px;
+      }
+      .contact__list li { display: flex; gap: 14px; }
+      .contact__list strong { display: block; color: var(--navy); }
+
+      .form {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+        background: var(--cream); padding: 32px;
+        border-radius: var(--radius); box-shadow: var(--shadow);
+      }
+      .form .field--full { grid-column: 1 / -1; }
+      .form textarea {
+        font: inherit; width: 100%; min-height: 120px; padding: 12px;
+        border: 1px solid gainsboro; border-radius: 10px;
+        background: var(--white); resize: vertical;
+      }
+      .form button { justify-self: start; }
+
+      .site-footer {
+        background: var(--navy); color: rgba(255, 255, 255, 0.7);
+        padding: 40px 0; font-size: 0.88rem;
+      }
+      .site-footer .container {
+        display: flex; flex-wrap: wrap; gap: 16px;
+        align-items: center; justify-content: space-between;
+      }
+      .site-footer a:hover { color: var(--gold); }
+
+      /* ============================================
+         MODAL DE RESERVA Y PAGO SIMULADO
+         ============================================ */
+      .modal {
+        position: fixed; inset: 0; z-index: 100;
+        display: none; align-items: center; justify-content: center;
+        padding: 20px;
+        background: rgba(25, 25, 112, 0.75);
+        backdrop-filter: blur(6px);
+        overflow-y: auto;
+      }
+      .modal.is-open { display: flex; }
+
+      .modal__box {
+        background: var(--white);
+        border-radius: var(--radius);
+        max-width: 540px; width: 100%;
+        padding: 34px 32px 30px;
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        animation: modalIn 0.28s ease;
+        max-height: 92vh;
+        overflow-y: auto;
+      }
+      @keyframes modalIn {
+        from { opacity: 0; transform: translateY(20px) scale(0.97); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      .modal__close {
+        position: absolute; top: 14px; right: 14px;
+        width: 38px; height: 38px; border-radius: 50%;
+        background: var(--cream); border: none; cursor: pointer;
+        font-size: 1.2rem; color: var(--navy); line-height: 1;
+        transition: background 0.2s ease;
+      }
+      .modal__close:hover { background: var(--gold); }
+
+      .modal__box h3 { font-size: 1.5rem; margin-bottom: 4px; }
+      .modal__sub { font-size: 0.88rem; color: slategray; margin-bottom: 22px; }
+
+      .steps {
+        display: flex; align-items: center; justify-content: center;
+        gap: 8px; margin-bottom: 26px;
+      }
+      .steps__dot {
+        width: 30px; height: 30px; border-radius: 50%;
+        display: grid; place-items: center;
+        font-size: 0.8rem; font-weight: 700;
+        background: var(--cream); color: lightslategray;
+        border: 1px solid gainsboro;
+        transition: all 0.25s ease;
+      }
+      .steps__dot.is-active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+      .steps__dot.is-done { background: var(--navy); color: var(--white); border-color: var(--navy); }
+      .steps__line { width: 32px; height: 2px; background: gainsboro; }
+
+      .modal .field { margin-bottom: 14px; }
+      .modal .field-row {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      }
+      .modal input, .modal select {
+        font: inherit; font-size: 0.94rem;
+        padding: 12px 14px;
+        border: 1px solid gainsboro; border-radius: 10px;
+        background: var(--cream); color: var(--navy);
+        width: 100%;
+      }
+      .modal input:focus, .modal select:focus {
+        outline: 2px solid var(--gold); outline-offset: 1px;
+      }
+
+      .modal__actions { display: flex; gap: 10px; margin-top: 22px; }
+      .modal__actions .btn { flex: 1; text-align: center; }
+
+      .card-visual {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+        color: var(--white);
+        border-radius: 14px;
+        padding: 20px 22px;
+        margin-bottom: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-visual::before {
+        content: "";
+        position: absolute; top: -40px; right: -40px;
+        width: 140px; height: 140px; border-radius: 50%;
+        background: rgba(210, 180, 140, 0.15);
+      }
+      .card-visual__chip {
+        width: 38px; height: 28px; border-radius: 6px;
+        background: linear-gradient(135deg, burlywood, peru);
+        margin-bottom: 20px;
+      }
+      .card-visual__number {
+        font-size: 1.15rem; letter-spacing: 0.15em;
+        font-family: monospace; margin-bottom: 16px;
+      }
+      .card-visual__row {
+        display: flex; justify-content: space-between; font-size: 0.8rem;
+      }
+      .card-visual__row span {
+        display: block; opacity: 0.65; font-size: 0.68rem;
+        text-transform: uppercase; letter-spacing: 0.1em;
+      }
+
+      .breakdown {
+        background: var(--cream);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 16px;
+        border-left: 3px solid var(--gold);
+      }
+      .breakdown__title {
+        font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--gold-dark);
+        margin-bottom: 12px;
+      }
+      .breakdown__row {
+        display: flex; justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        font-size: 0.9rem;
+      }
+      .breakdown__row span:first-child { color: slategray; }
+      .breakdown__row span:last-child { color: var(--navy); font-weight: 600; }
+      .breakdown__dates {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 12px;
+        background: var(--white);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
+      .breakdown__dates .arrow { color: var(--gold-dark); font-weight: 700; }
+      .breakdown__dates .date {
+        flex: 1;
+        color: var(--navy);
+        font-weight: 600;
+      }
+      .breakdown__dates .date small {
+        display: block;
+        color: slategray;
+        font-weight: 400;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .breakdown__nights {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .breakdown__total {
+        border-top: 1px dashed gainsboro;
+        margin-top: 10px;
+        padding-top: 12px;
+        display: flex; justify-content: space-between;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .breakdown__total span:first-child { font-size: 0.9rem; color: slategray; font-weight: 500; }
+
+      .confirm { text-align: center; padding: 10px 0; }
+      .confirm__icon {
+        width: 72px; height: 72px; border-radius: 50%;
+        background: rgba(210, 180, 140, 0.2); color: var(--gold-dark);
+        display: grid; place-items: center;
+        font-size: 2.2rem; margin: 0 auto 18px;
+      }
+      .confirm__code {
+        display: inline-block;
+        background: var(--cream); padding: 10px 20px;
+        border-radius: 10px; font-family: monospace;
+        font-size: 1rem; font-weight: 700;
+        color: var(--navy); letter-spacing: 0.08em;
+        margin-top: 8px;
+      }
+      .confirm__detail {
+        text-align: left; margin-top: 22px;
+        padding: 18px; background: var(--cream);
+        border-radius: 12px; font-size: 0.9rem;
+      }
+      .confirm__detail p { margin: 0 0 6px; display: flex; justify-content: space-between; gap: 12px; }
+      .confirm__detail p span:first-child { color: slategray; }
+      .confirm__detail p span:last-child { font-weight: 600; color: var(--navy); text-align: right; }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 900px) {
+        .nav__links { display: none; }
+        .nav__toggle { display: block; }
+        .nav__links.is-open {
+          display: flex; position: absolute; top: 100%;
+          left: 0; right: 0; flex-direction: column;
+          align-items: flex-start; gap: 18px;
+          background: rgba(25, 25, 112, 0.98); padding: 26px 24px;
+        }
+        .booking-bar { grid-template-columns: 1fr 1fr; }
+        .booking-bar .btn { grid-column: 1 / -1; width: 100%; }
+        .about__grid, .contact__grid { grid-template-columns: 1fr; gap: 40px; }
+        .tour__grid { grid-template-columns: 1fr; gap: 32px; }
+        .gallery { grid-template-columns: repeat(2, 1fr); }
+        .gallery .span-2 { grid-column: span 2; grid-row: span 2; }
+        .section { padding: 72px 0; }
+      }
+      @media (max-width: 560px) {
+        .booking-bar { grid-template-columns: 1fr; }
+        .form { grid-template-columns: 1fr; padding: 22px; }
+        .gallery { grid-template-columns: 1fr; grid-auto-rows: 200px; }
+        .gallery .span-2 { grid-column: span 1; grid-row: span 1; }
+        .modal__box { padding: 26px 20px; }
+        .modal .field-row { grid-template-columns: 1fr; }
+        .tour__play-btn { width: 64px; height: 64px; font-size: 1.5rem; }
+        .brand img { height: 34px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="site-header">
+      <div class="container nav">
+        <a href="#" class="brand">
+          <img src="logo.png" alt="Kat Royal — Hotel & Resort" />
+        </a>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#tour">Tour</a></li>
+          <li><a href="#habitaciones">Habitaciones</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="#" class="btn btn--gold" data-open-booking>Reservar</a>
+          <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg"></div>
+
+      <div class="container">
+        <span class="eyebrow" style="color: var(--gold)">Bienvenido a Kat Royal</span>
+        <h1>Lujo sereno en el corazón de la ciudad</h1>
+        <p>
+          Un refugio diseñado para el descanso: habitaciones luminosas, gastronomía de autor
+          y un servicio que anticipa cada detalle.
+        </p>
+        <div class="hero__actions">
+          <a href="#" class="btn btn--gold" data-open-booking>Reservar ahora</a>
+          <a href="#tour" class="btn btn--ghost">Ver video tour</a>
+        </div>
+
+        <form class="booking-bar" id="reservar" onsubmit="event.preventDefault(); openBooking();">
+          <div class="field">
+            <label for="checkin">Llegada</label>
+            <input type="date" id="checkin" name="checkin" />
+          </div>
+          <div class="field">
+            <label for="checkout">Salida</label>
+            <input type="date" id="checkout" name="checkout" />
+          </div>
+          <div class="field">
+            <label for="huespedes">Huéspedes</label>
+            <select id="huespedes" name="huespedes">
+              <option>1 huésped</option>
+              <option selected>2 huéspedes</option>
+              <option>3 huéspedes</option>
+              <option>4 huéspedes</option>
+              <option>5 huéspedes</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--dark">Comprobar disponibilidad</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section class="section" id="nosotros">
+      <div class="container about__grid">
+        <div class="about__media">
+          <img src="lobby.jpg" alt="Lobby del hotel Kat Royal" loading="lazy" />
+          <img src="habi.jpg" alt="Detalle de habitación" loading="lazy" />
+          <img src="descanso.jpg" alt="Área de descanso" loading="lazy" />
+        </div>
+
+        <div>
+          <span class="eyebrow">Sobre nosotros</span>
+          <h2>Una estancia pensada para recordarse</h2>
+          <p>
+            Desde 2012, Kat Royal combina arquitectura contemporánea con la calidez del servicio
+            clásico. Cada rincón está diseñado para que el tiempo pase más despacio.
+          </p>
+          <p>
+            Nuestro equipo cuida desde el aroma del lobby hasta la temperatura exacta de tu café
+            matutino. Porque el verdadero lujo está en los detalles que no tienes que pedir.
+          </p>
+
+          <div class="stats">
+            <div class="stat"><strong>48</strong><span>Habitaciones</span></div>
+            <div class="stat"><strong>12</strong><span>Años de historia</span></div>
+            <div class="stat"><strong>4.9</strong><span>Valoración media</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         VIDEO TOUR
+         ============================================ -->
+    <section class="section tour" id="tour">
+      <div class="container">
+        <div class="tour__grid">
+          <div class="tour__video" id="tour-video-wrapper">
+            <span class="tour__duration">⏱ 0:48</span>
+
+            <video
+              id="tour-video"
+              poster="tour-poster.jpg"
+              preload="metadata"
+              playsinline
+              controls
+            >
+              <source src="tour.mp4" type="video/mp4" />
+              <source src="tour.webm" type="video/webm" />
+              Tu navegador no soporta el reproductor de video HTML5.
+            </video>
+
+            <div class="tour__play" id="tour-play">
+              <div class="tour__play-btn">▶</div>
+            </div>
+          </div>
+
+          <div class="tour__content">
+            <span class="eyebrow">Video Tour</span>
+            <h2>Conoce Kat Royal en menos de un minuto</h2>
+            <p>
+              Un recorrido rápido pero completo por Kat Royal: desde el lobby hasta la suite
+              presidencial, pasando por el spa, la piscina y el restaurante.
+            </p>
+
+            <ul class="tour__features">
+              <li>Recorrido por las 6 categorías de habitaciones</li>
+              <li>Vista aérea del hotel y sus jardines</li>
+              <li>Ambientes del spa, piscina y restaurante</li>
+              <li>Detalles del servicio de conserjería 24 h</li>
+            </ul>
+
+            <div class="tour__actions">
+              <button class="btn btn--gold" id="tour-fullscreen">
+                Ver en pantalla completa · 0:48
+              </button>
+              <a href="#" class="btn btn--ghost" data-open-booking>Reservar ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABITACIONES ============ -->
+    <section class="section rooms" id="habitaciones">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow">Alojamiento</span>
+          <h2>Habitaciones &amp; Suites</h2>
+          <p>Espacios amplios con luz natural, textiles nobles y vistas seleccionadas.</p>
+        </div>
+
+        <div class="cards">
+          <!-- HABITACIÓN 1 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="deluxe.jpg" alt="Habitación moderna con cabecero de terciopelo gris, ropa de cama blanca y sillón de cuero negro junto a la ventana" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>28 m²</span><span>2 huéspedes</span><span>Cama King</span></div>
+              <h3>Habitación Deluxe</h3>
+              <p>Un refugio de diseño contemporáneo con cabecero tapizado en tono grafito, ropa de cama de algodón egipcio y un acogedor sillón de cuero para la lectura. Sus grandes ventanales con cortinas blackout garantizan un descanso absoluto.</p>
+              <div class="card__footer">
+                <span class="price">L. 4,500 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Habitación Deluxe" data-room-price="4500">Reservar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HABITACIÓN 2 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="ejecutiva.jpg" alt="Suite de lujo con techo circular iluminado, muebles de madera oscura, pufs otomanos y vista panorámica al mar" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>42 m²</span><span>3 huéspedes</span><span>Vista al mar</span></div>
+              <h3>Suite Ejecutiva</h3>
+              <p>Una suite espectacular con acabados de madera noble, iluminación ambiental en el techo y vistas directas al océano. Incluye zona de trabajo, dos pufs otomanos al pie de la cama y un amplio balcón privado para disfrutar del atardecer.</p>
+              <div class="card__footer">
+                <span class="price">L. 6,500 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Suite Ejecutiva" data-room-price="6500">Reservar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HABITACIÓN 3 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="suite.jpg" alt="Habitación luminosa con balcón privado, jardín vertical, cama con edredón acolchado y banco tapizado" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>60 m²</span><span>4 huéspedes</span><span>Vista jardín</span></div>
+              <h3>Suite Presidencial</h3>
+              <p>Luminosa y fresca, esta suite ofrece un balcón privado con vistas a un jardín vertical. Equipada con cama king, edredón acolchado, banco tapizado y un escritorio de madera, es ideal para estancias largas de trabajo o descanso.</p>
+              <div class="card__footer">
+                <span class="price">L. 10,500 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Suite Presidencial" data-room-price="10500">Reservar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HABITACIÓN 4 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="doble.jpeg" alt="Habitación Doble Estandar con dos camas individuales, escritorio y ventanal" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>24 m²</span><span>2 huéspedes</span><span>2 camas</span></div>
+              <h3>Habitación Doble Estandar</h3>
+              <p>Perfecta para amigos o compañeros de viaje. Dos camas individuales de alta gama, escritorio de trabajo y un ventanal con vistas a la ciudad. Incluye desayuno continental y acceso al gimnasio del hotel.</p>
+              <div class="card__footer">
+                <span class="price">L. 3,800 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Habitación Doble Estandar" data-room-price="3800">Reservar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HABITACIÓN 5 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="familiar.jpeg" alt="Suite Familiar con sala de estar, sofá cama y dos ambientes separados" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>52 m²</span><span>5 huéspedes</span><span>Vista interior</span></div>
+              <h3>Suite Familiar</h3>
+              <p>Diseñada para viajar en familia: dos ambientes separados, sofá cama adicional, minibar y una amplia sala de estar. Incluye servicio de cuna sin costo y menú infantil en el restaurante.</p>
+              <div class="card__footer">
+                <span class="price">L. 7,800 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Suite Familiar" data-room-price="7800">Reservar</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HABITACIÓN 6 -->
+          <article class="card">
+            <div class="card__img">
+              <img src="romantica.jpeg" alt="Suite Romántica con bañera de hidromasaje, cama con dosel y decoración con velas" loading="lazy" width="900" height="675" />
+            </div>
+            <div class="card__body">
+              <div class="card__meta"><span>36 m²</span><span>2 huéspedes</span><span>Vista panorámica</span></div>
+              <h3>Suite Romántica</h3>
+              <p>El escenario perfecto para una escapada en pareja: cama con dosel, bañera de hidromasaje, iluminación cálida y detalles de bienvenida con champagne y fresas. Servicio de habitaciones preferente.</p>
+              <div class="card__footer">
+                <span class="price">L. 8,900 <small>/ noche</small></span>
+                <button class="btn btn--dark" style="padding: 10px 22px; font-size: 0.82rem;"
+                  data-open-booking data-room="Suite Romántica" data-room-price="8900">Reservar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="section amenities" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Servicios</span>
+          <h2>Todo lo que necesitas, incluido</h2>
+          <p style="color: rgba(255,255,255,0.75)">
+            Instalaciones cuidadas y servicios pensados para que solo te preocupes por disfrutar.
+          </p>
+        </div>
+
+        <div class="amenity-grid">
+          <div class="amenity">
+            <div class="amenity__icon"><img src="spa.png" alt="Logo Spa & Wellness" loading="lazy" /></div>
+            <h3>Spa &amp; Wellness</h3>
+            <p>Circuito de aguas, sauna finlandesa y masajes con productos botánicos.</p>
+          </div>
+          <div class="amenity">
+            <div class="amenity__icon"><img src="piscina.png" alt="Logo Piscina climatizada" loading="lazy" /></div>
+            <h3>Piscina climatizada</h3>
+            <p>Piscina interior con tumbonas y servicio de bar las 12 horas.</p>
+          </div>
+          <div class="amenity">
+            <div class="amenity__icon"><img src="restaurante.png" alt="Logo Restaurante de autor" loading="lazy" /></div>
+            <h3>Restaurante de autor</h3>
+            <p>Cocina mediterránea de temporada con maridaje de vinos seleccionados.</p>
+          </div>
+          <div class="amenity">
+            <div class="amenity__icon"><img src="wifi.png" alt="Logo Wi-Fi de alta velocidad" loading="lazy" /></div>
+            <h3>Wi-Fi de alta velocidad</h3>
+            <p>Conexión simétrica en todas las áreas, ideal para viajes de trabajo.</p>
+          </div>
+          <div class="amenity">
+            <div class="amenity__icon"><img src="recepcion.png" alt="Logo Recepción 24 horas" loading="lazy" /></div>
+            <h3>Recepción 24 h</h3>
+            <p>Conserjería, traslados al aeropuerto y servicio de habitaciones nocturno.</p>
+          </div>
+          <div class="amenity">
+            <div class="amenity__icon"><img src="parking.png" alt="Logo Parking privado" loading="lazy" /></div>
+            <h3>Parking privado</h3>
+            <p>Estacionamiento cubierto con acceso directo al lobby y carga eléctrica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section class="section" id="galeria">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow">Galería</span>
+          <h2>Un vistazo a Kat Royal</h2>
+        </div>
+
+        <div class="gallery">
+          <a href="#" class="span-2"><img src="fachada.jpg" alt="Fachada del hotel" loading="lazy" /></a>
+          <a href="#"><img src="vista de habitacion.jpg" alt="Detalle de habitación" loading="lazy" /></a>
+          <a href="#"><img src="restaurante.jpg" alt="Restaurante del hotel" loading="lazy" /></a>
+          <a href="#"><img src="piscina.jpg" alt="Piscina del hotel" loading="lazy" /></a>
+          <a href="#"><img src="spa.jpg" alt="Spa del hotel" loading="lazy" /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section contact" id="contacto">
+      <div class="container contact__grid">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2>Estamos aquí para ayudarte</h2>
+          <p>Escríbenos y nuestro equipo de reservas te responderá en menos de 2 horas.</p>
+
+          <ul class="contact__list">
+            <li><span>📍</span><div><strong>Dirección</strong> Santa Cruz de Yojoa, Ciudad</div></li>
+            <li><span>📞</span><div><strong>Teléfono</strong> +504 9935-8982</div></li>
+            <li><span>✉️</span><div><strong>Email</strong> reservas@katroyal.com</div></li>
+          </ul>
+        </div>
+
+        <form class="form" onsubmit="event.preventDefault(); alert('¡Gracias! Te contactaremos pronto.');">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+          <div class="field field--full">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--gold field--full">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="container">
+        <p style="margin: 0">&copy; <span id="year"></span> Kat Royal. Todos los derechos reservados.</p>
+        <p style="margin: 0">Plantilla por <a href="https://untree.co/" target="_blank" rel="noopener">Untree.co</a></p>
+      </div>
+    </footer>
+
+    <!-- ============================================
+         MODAL DE RESERVA + PAGO SIMULADO
+         ============================================ -->
+    <div class="modal" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal__box">
+        <button class="modal__close" id="modal-close" aria-label="Cerrar">✕</button>
+
+        <div class="steps" id="steps">
+          <div class="steps__dot is-active" data-step="1">1</div>
+          <div class="steps__line"></div>
+          <div class="steps__dot" data-step="2">2</div>
+          <div class="steps__line"></div>
+          <div class="steps__dot" data-step="3">3</div>
+        </div>
+
+        <!-- PASO 1 -->
+        <div class="modal__step" data-step="1">
+          <h3 id="modal-title">Datos de tu reserva</h3>
+          <p class="modal__sub">Completa los datos para confirmar tu estancia en Kat Royal.</p>
+
+          <div class="field">
+            <label for="m-nombre">Nombre completo</label>
+            <input type="text" id="m-nombre" placeholder="Ej. María López" required />
+          </div>
+          <div class="field">
+            <label for="m-email">Correo electrónico</label>
+            <input type="email" id="m-email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+          <div class="field">
+            <label for="m-room">Habitación</label>
+            <select id="m-room">
+              <option value="Habitación Deluxe" data-price="4500">Habitación Deluxe — L. 4,500 / noche</option>
+              <option value="Suite Ejecutiva" data-price="6500">Suite Ejecutiva — L. 6,500 / noche</option>
+              <option value="Suite Presidencial" data-price="10500">Suite Presidencial — L. 10,500 / noche</option>
+              <option value="Habitación Doble Estandar" data-price="3800">Habitación Doble Estandar — L. 3,800 / noche</option>
+              <option value="Suite Familiar" data-price="7800">Suite Familiar — L. 7,800 / noche</option>
+              <option value="Suite Romántica" data-price="8900">Suite Romántica — L. 8,900 / noche</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="m-checkin">Llegada</label>
+              <input type="date" id="m-checkin" required />
+            </div>
+            <div class="field">
+              <label for="m-checkout">Salida</label>
+              <input type="date" id="m-checkout" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="m-huespedes">Número de huéspedes</label>
+            <select id="m-huespedes">
+              <option>1 huésped</option>
+              <option selected>2 huéspedes</option>
+              <option>3 huéspedes</option>
+              <option>4 huéspedes</option>
+              <option>5 huéspedes</option>
+            </select>
+          </div>
+
+          <div class="breakdown" id="breakdown-1">
+            <div class="breakdown__title">Resumen de tu estancia</div>
+            <div class="breakdown__dates">
+              <div class="date" id="b1-in">—<small>Llegada</small></div>
+              <div class="arrow">→</div>
+              <div class="date" id="b1-out">—<small>Salida</small></div>
+            </div>
+            <div class="breakdown__nights" id="b1-nights">0 noches</div>
+            <div class="breakdown__row">
+              <span>Precio por noche</span>
+              <span id="b1-ppn">L. 0</span>
+            </div>
+            <div class="breakdown__row">
+              <span>Subtotal (<span id="b1-nights-2">0</span> noches)</span>
+              <span id="b1-subtotal">L. 0</span>
+            </div>
+            <div class="breakdown__row">
+              <span>ISV (15%)</span>
+              <span id="b1-tax">L. 0</span>
+            </div>
+            <div class="breakdown__total">
+              <span>Total</span>
+              <span id="b1-total">L. 0</span>
+            </div>
+          </div>
+
+          <div class="modal__actions">
+            <button class="btn btn--gold" id="to-step-2">Continuar al pago</button>
+          </div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="modal__step" data-step="2" style="display:none">
+          <h3>Pago simulado</h3>
+          <p class="modal__sub">⚠️ Esta es una demostración académica. No se procesará ningún cobro real.</p>
+
+          <div class="card-visual">
+            <div class="card-visual__chip"></div>
+            <div class="card-visual__number" id="card-number-preview">•••• •••• •••• ••••</div>
+            <div class="card-visual__row">
+              <div>
+                <span>Titular</span>
+                <div id="card-name-preview">NOMBRE APELLIDO</div>
+              </div>
+              <div>
+                <span>Vence</span>
+                <div id="card-exp-preview">MM/AA</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="m-card-name">Nombre en la tarjeta</label>
+            <input type="text" id="m-card-name" placeholder="Como aparece en la tarjeta" />
+          </div>
+          <div class="field">
+            <label for="m-card-number">Número de tarjeta</label>
+            <input type="text" id="m-card-number" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="m-card-exp">Vencimiento</label>
+              <input type="text" id="m-card-exp" placeholder="MM/AA" maxlength="5" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="m-card-cvv">CVV</label>
+              <input type="text" id="m-card-cvv" placeholder="123" maxlength="4" inputmode="numeric" />
+            </div>
+          </div>
+
+          <div class="breakdown" id="breakdown-2">
+            <div class="breakdown__title">Detalle del pago</div>
+            <div class="breakdown__row">
+              <span>Habitación</span>
+              <span id="b2-room">—</span>
+            </div>
+            <div class="breakdown__row">
+              <span>Huéspedes</span>
+              <span id="b2-guests">—</span>
+            </div>
+            <div class="breakdown__dates">
+              <div class="date" id="b2-in">—<small>Llegada</small></div>
+              <div class="arrow">→</div>
+              <div class="date" id="b2-out">—<small>Salida</small></div>
+            </div>
+            <div class="breakdown__nights" id="b2-nights">0 noches</div>
+            <div class="breakdown__row">
+              <span>Precio por noche</span>
+              <span id="b2-ppn">L. 0</span>
+            </div>
+            <div class="breakdown__row">
+              <span>Subtotal (<span id="b2-nights-2">0</span> noches)</span>
+              <span id="b2-subtotal">L. 0</span>
+            </div>
+            <div class="breakdown__row">
+              <span>ISV (15%)</span>
+              <span id="b2-tax">L. 0</span>
+            </div>
+            <div class="breakdown__total">
+              <span>Total a pagar</span>
+              <span id="b2-total">L. 0</span>
+            </div>
+          </div>
+
+          <div class="modal__actions">
+            <button class="btn btn--ghost" id="back-to-1" style="color: var(--navy); border-color: gainsboro;">Atrás</button>
+            <button class="btn btn--dark" id="pay-now">Pagar ahora</button>
+          </div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="modal__step" data-step="3" style="display:none">
+          <div class="confirm">
+            <div class="confirm__icon">✓</div>
+            <h3>¡Reserva confirmada!</h3>
+            <p class="modal__sub">Gracias por elegir Kat Royal. Te enviamos los detalles por correo.</p>
+            <div class="confirm__code" id="confirm-code">KR-000000</div>
+
+            <div class="confirm__detail">
+              <p><span>Huésped</span><span id="confirm-name">—</span></p>
+              <p><span>Habitación</span><span id="confirm-room">—</span></p>
+              <p><span>Huéspedes</span><span id="confirm-guests">—</span></p>
+              <p><span>Llegada</span><span id="confirm-checkin">—</span></p>
+              <p><span>Salida</span><span id="confirm-checkout">—</span></p>
+              <p><span>Noches</span><span id="confirm-nights">—</span></p>
+              <p><span>Subtotal</span><span id="confirm-subtotal">—</span></p>
+              <p><span>ISV (15%)</span><span id="confirm-tax">—</span></p>
+              <p><span>Total pagado</span><span id="confirm-total">—</span></p>
+            </div>
+
+            <div class="modal__actions">
+              <button class="btn btn--gold" id="close-confirm">Finalizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         LIGHTBOX DE VIDEO
+         ============================================ -->
+    <div class="video-lightbox" id="video-lightbox">
+      <button class="video-lightbox__close" id="video-lightbox-close" aria-label="Cerrar">✕</button>
+      <video id="video-lightbox-player" controls playsinline>
+        <source src="tour.mp4" type="video/mp4" />
+        <source src="tour.webm" type="video/webm" />
+      </video>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      /* ---------- Header sticky ---------- */
+      const header = document.getElementById("site-header");
+      const onScroll = () => header.classList.toggle("is-stuck", window.scrollY > 40);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      /* ---------- Menú móvil ---------- */
+      const toggle = document.getElementById("nav-toggle");
+      const links = document.getElementById("nav-links");
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+      links.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          links.classList.remove("is-open");
+          toggle.setAttribute("aria-expanded", "false");
+        })
+      );
+
+      /* ---------- Fallback de imágenes ---------- */
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("error", () => {
+          if (!img.dataset.fallback) {
+            img.dataset.fallback = "1";
+            img.src = "https://placehold.co/900x675/gainsboro/midnightblue?text=" + encodeURIComponent(img.alt || "Imagen");
+          }
+        });
+      });
+
+      /* ============================================
+         VIDEO TOUR
+         ============================================ */
+      const tourVideo = document.getElementById("tour-video");
+      const tourWrapper = document.getElementById("tour-video-wrapper");
+      const tourPlay = document.getElementById("tour-play");
+      const tourFullscreenBtn = document.getElementById("tour-fullscreen");
+      const lightbox = document.getElementById("video-lightbox");
+      const lightboxVideo = document.getElementById("video-lightbox-player");
+      const lightboxClose = document.getElementById("video-lightbox-close");
+
+      tourPlay.addEventListener("click", () => {
+        tourVideo.play();
+      });
+
+      tourVideo.addEventListener("play", () => tourWrapper.classList.add("is-playing"));
+      tourVideo.addEventListener("pause", () => tourWrapper.classList.remove("is-playing"));
+      tourVideo.addEventListener("ended", () => tourWrapper.classList.remove("is-playing"));
+
+      tourFullscreenBtn.addEventListener("click", () => {
+        tourVideo.pause();
+        lightbox.classList.add("is-open");
+        lightboxVideo.currentTime = tourVideo.currentTime || 0;
+        lightboxVideo.play();
+        document.body.style.overflow = "hidden";
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightboxVideo.pause();
+        document.body.style.overflow = "";
+      }
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox(); });
+
+      /* ============================================
+         LÓGICA DEL MODAL DE RESERVA + PAGO FALSO
+         ============================================ */
+      const modal = document.getElementById("booking-modal");
+      const closeBtn = document.getElementById("modal-close");
+      const steps = document.querySelectorAll(".modal__step");
+      const stepDots = document.querySelectorAll(".steps__dot");
+
+      const TAX_RATE = 0.15;
+
+      let selectedRoom = "Habitación Deluxe";
+      let selectedPrice = 4500;
+
+      const fmt = (n) => "L. " + Math.round(n).toLocaleString("es-HN");
+
+      const fmtDate = (iso) => {
+        if (!iso) return "—";
+        const d = new Date(iso + "T00:00:00");
+        const dias = ["dom","lun","mar","mié","jue","vie","sáb"];
+        const meses = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+        return `${dias[d.getDay()]} ${d.getDate()} ${meses[d.getMonth()]}`;
+      };
+
+      function goToStep(n) {
+        steps.forEach((s) => (s.style.display = s.dataset.step === String(n) ? "" : "none"));
+        stepDots.forEach((d) => {
+          const num = Number(d.dataset.step);
+          d.classList.toggle("is-active", num === n);
+          d.classList.toggle("is-done", num < n);
+        });
+      }
+
+      function openBooking(room, price) {
+        if (room) selectedRoom = room;
+        if (price) selectedPrice = price;
+
+        const sel = document.getElementById("m-room");
+        [...sel.options].forEach((o) => {
+          if (o.value === selectedRoom) sel.value = selectedRoom;
+        });
+
+        const topIn = document.getElementById("checkin").value;
+        const topOut = document.getElementById("checkout").value;
+        const topGuests = document.getElementById("huespedes").value;
+
+        const mIn = document.getElementById("m-checkin");
+        const mOut = document.getElementById("m-checkout");
+        const mGuests = document.getElementById("m-huespedes");
+
+        if (topIn) mIn.value = topIn;
+        if (topOut) mOut.value = topOut;
+        if (topGuests) mGuests.value = topGuests;
+
+        updateSummary();
+        goToStep(1);
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeBooking() {
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll("[data-open-booking]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const room = btn.dataset.room || null;
+          const price = btn.dataset.roomPrice ? Number(btn.dataset.roomPrice) : null;
+          openBooking(room, price);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeBooking);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeBooking(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeBooking(); });
+
+      function updateSummary() {
+        const sel = document.getElementById("m-room");
+        const opt = sel.options[sel.selectedIndex];
+        selectedRoom = opt.value;
+        selectedPrice = Number(opt.dataset.price) || 0;
+
+        const inDate = document.getElementById("m-checkin").value;
+        const outDate = document.getElementById("m-checkout").value;
+        const guests = document.getElementById("m-huespedes").value;
+
+        let nights = 0;
+        if (inDate && outDate) {
+          const diff = (new Date(outDate) - new Date(inDate)) / (1000 * 60 * 60 * 24);
+          nights = diff > 0 ? Math.round(diff) : 0;
+        }
+
+        const subtotal = selectedPrice * nights;
+        const tax = subtotal * TAX_RATE;
+        const total = subtotal + tax;
+
+        document.getElementById("b1-in").innerHTML = fmtDate(inDate) + "<small>Llegada</small>";
+        document.getElementById("b1-out").innerHTML = fmtDate(outDate) + "<small>Salida</small>";
+        document.getElementById("b1-nights").textContent = nights + (nights === 1 ? " noche" : " noches");
+        document.getElementById("b1-nights-2").textContent = nights;
+        document.getElementById("b1-ppn").textContent = fmt(selectedPrice);
+        document.getElementById("b1-subtotal").textContent = fmt(subtotal);
+        document.getElementById("b1-tax").textContent = fmt(tax);
+        document.getElementById("b1-total").textContent = fmt(total);
+
+        document.getElementById("b2-room").textContent = selectedRoom;
+        document.getElementById("b2-guests").textContent = guests;
+        document.getElementById("b2-in").innerHTML = fmtDate(inDate) + "<small>Llegada</small>";
+        document.getElementById("b2-out").innerHTML = fmtDate(outDate) + "<small>Salida</small>";
+        document.getElementById("b2-nights").textContent = nights + (nights === 1 ? " noche" : " noches");
+        document.getElementById("b2-nights-2").textContent = nights;
+        document.getElementById("b2-ppn").textContent = fmt(selectedPrice);
+        document.getElementById("b2-subtotal").textContent = fmt(subtotal);
+        document.getElementById("b2-tax").textContent = fmt(tax);
+        document.getElementById("b2-total").textContent = fmt(total);
+
+        return { nights, subtotal, tax, total, guests };
+      }
+
+      document.getElementById("m-room").addEventListener("change", updateSummary);
+      document.getElementById("m-checkin").addEventListener("change", updateSummary);
+      document.getElementById("m-checkout").addEventListener("change", updateSummary);
+      document.getElementById("m-huespedes").addEventListener("change", updateSummary);
+
+      document.getElementById("to-step-2").addEventListener("click", () => {
+        const nombre = document.getElementById("m-nombre").value.trim();
+        const email = document.getElementById("m-email").value.trim();
+        const checkin = document.getElementById("m-checkin").value;
+        const checkout = document.getElementById("m-checkout").value;
+
+        if (!nombre || !email || !checkin || !checkout) {
+          alert("Por favor completa todos los campos antes de continuar.");
+          return;
+        }
+        if (new Date(checkout) <= new Date(checkin)) {
+          alert("La fecha de salida debe ser posterior a la de llegada.");
+          return;
+        }
+        updateSummary();
+        goToStep(2);
+      });
+
+      document.getElementById("back-to-1").addEventListener("click", () => goToStep(1));
+
+      const cardNumberInput = document.getElementById("m-card-number");
+      const cardNameInput = document.getElementById("m-card-name");
+      const cardExpInput = document.getElementById("m-card-exp");
+
+      cardNumberInput.addEventListener("input", (e) => {
+        let v = e.target.value.replace(/\D/g, "").slice(0, 16);
+        v = v.replace(/(.{4})/g, "$1 ").trim();
+        e.target.value = v;
+        document.getElementById("card-number-preview").textContent =
+          v || "•••• •••• •••• ••••";
+      });
+
+      cardNameInput.addEventListener("input", (e) => {
+        document.getElementById("card-name-preview").textContent =
+          e.target.value.toUpperCase() || "NOMBRE APELLIDO";
+      });
+
+      cardExpInput.addEventListener("input", (e) => {
+        let v = e.target.value.replace(/\D/g, "").slice(0, 4);
+        if (v.length >= 3) v = v.slice(0, 2) + "/" + v.slice(2);
+        e.target.value = v;
+        document.getElementById("card-exp-preview").textContent = v || "MM/AA";
+      });
+
+      document.getElementById("m-card-cvv").addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/g, "").slice(0, 4);
+      });
+
+      document.getElementById("pay-now").addEventListener("click", () => {
+        const num = cardNumberInput.value.replace(/\s/g, "");
+        const name = cardNameInput.value.trim();
+        const exp = cardExpInput.value.trim();
+        const cvv = document.getElementById("m-card-cvv").value.trim();
+
+        if (num.length < 16) { alert("Ingresa un número de tarjeta de 16 dígitos."); return; }
+        if (!name) { alert("Ingresa el nombre del titular."); return; }
+        if (exp.length < 5) { alert("Ingresa la fecha de vencimiento (MM/AA)."); return; }
+        if (cvv.length < 3) { alert("Ingresa el CVV."); return; }
+
+        const btn = document.getElementById("pay-now");
+        btn.textContent = "Procesando...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          const { nights, subtotal, tax, total, guests } = updateSummary();
+          const code = "KR-" + Math.floor(100000 + Math.random() * 900000);
+
+          document.getElementById("confirm-code").textContent = code;
+          document.getElementById("confirm-name").textContent = document.getElementById("m-nombre").value;
+          document.getElementById("confirm-room").textContent = selectedRoom;
+          document.getElementById("confirm-guests").textContent = guests;
+          document.getElementById("confirm-checkin").textContent = fmtDate(document.getElementById("m-checkin").value);
+          document.getElementById("confirm-checkout").textContent = fmtDate(document.getElementById("m-checkout").value);
+          document.getElementById("confirm-nights").textContent = nights + (nights === 1 ? " noche" : " noches");
+          document.getElementById("confirm-subtotal").textContent = fmt(subtotal);
+          document.getElementById("confirm-tax").textContent = fmt(tax);
+          document.getElementById("confirm-total").textContent = fmt(total);
+
+          btn.textContent = "Pagar ahora";
+          btn.disabled = false;
+          goToStep(3);
+        }, 1200);
+      });
+
+      document.getElementById("close-confirm").addEventListener("click", () => {
+        closeBooking();
+        document.getElementById("m-nombre").value = "";
+        document.getElementById("m-email").value = "";
+        document.getElementById("m-card-name").value = "";
+        document.getElementById("m-card-number").value = "";
+        document.getElementById("m-card-exp").value = "";
+        document.getElementById("m-card-cvv").value = "";
+        document.getElementById("card-number-preview").textContent = "•••• •••• •••• ••••";
+        document.getElementById("card-name-preview").textContent = "NOMBRE APELLIDO";
+        document.getElementById("card-exp-preview").textContent = "MM/AA";
+      });
+    </script>
+  </body>
+</html>
